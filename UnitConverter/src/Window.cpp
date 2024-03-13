@@ -87,7 +87,7 @@ Window::Window() : converting(false)
         row[m_Columns.m_col_name] = unit.name;
     }
     
-    m_unitsTo_Combo.set_active(0);
+    m_unitsTo_Combo.set_active(1);
 
     //Add the model columns to the Combo (which is a kind of view),
     //rendering them in the default way:
@@ -152,7 +152,7 @@ void Window::on_unitsType_combo_changed()
             }
 
             m_unitsFrom_Combo.set_active(0);
-            m_unitsTo_Combo.set_active(0);
+            m_unitsTo_Combo.set_active(1);
         }
     }
     else
@@ -161,12 +161,10 @@ void Window::on_unitsType_combo_changed()
 
 void Window::on_units_combo_changed()
 {
-    Glib::ustring unitsFrom_name = (*m_unitsFrom_Combo.get_active())[m_Columns.m_col_name];
-    Glib::ustring unitsTo_name = (*m_unitsFrom_Combo.get_active())[m_Columns.m_col_name];
-    if(unitsFrom_name.compare(unitsTo_name) != 0)
-
     if (!m_EntryFrom.get_text().empty())
+    {
         convert_value(m_unitsFrom_Combo, m_unitsTo_Combo, m_EntryFrom, m_EntryTo);
+    }
 }
 
 void Window::convert_value(Gtk::ComboBox& m_unitsFrom_Combo, Gtk::ComboBox& m_unitsTo_Combo, Gtk::Entry& m_EntryFrom, Gtk::Entry& m_EntryTo)
@@ -175,16 +173,33 @@ void Window::convert_value(Gtk::ComboBox& m_unitsFrom_Combo, Gtk::ComboBox& m_un
     {
         converting = true;
 
-        Glib::ustring unitFrom_name = (*m_unitsFrom_Combo.get_active())[m_Columns.m_col_name];
-        Glib::ustring unitTo_name = (*m_unitsTo_Combo.get_active())[m_Columns.m_col_name];
+        Glib::ustring from = (*m_unitsFrom_Combo.get_active())[m_Columns.m_col_name];
+        Glib::ustring to = (*m_unitsTo_Combo.get_active())[m_Columns.m_col_name];
 
         const double value = std::stod(m_EntryFrom.get_text());
 
-        const double factorFrom = get_conversion_factor(unitFrom_name);
-        const double factorTo = get_conversion_factor(unitTo_name);
+        Glib::ustring unitType = (*m_units_Combo.get_active())[m_Columns.m_col_name];
 
-        const double converted_value = value * (factorFrom / factorTo);
+        double converted_value;
 
+        if (unitType.compare("Temperature") == 0)
+        {
+            if (temperatureConversions.find(from) != temperatureConversions.end() &&
+                temperatureConversions[from].find(to) != temperatureConversions[from].end())
+            {
+                const TemperatureConversion& conv = temperatureConversions[from][to];
+                converted_value = value * conv.factor + conv.offset;
+            }
+            else
+                converted_value = value;
+        }
+        else
+        {
+            const double factorFrom = get_conversion_factor(from);
+            const double factorTo = get_conversion_factor(to);
+
+            converted_value = value * (factorFrom / factorTo);
+        }
         
         std::string str;
 

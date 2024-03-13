@@ -90,12 +90,31 @@ private:
 
         {"Speed", {{"Miles per hour", 0.44704}, {"Foot per second", 0.3048}, {"Meter per second", 1.0}, {"Kilometer per hour", 3.6}, {"Knot", 0.514444}}},
 
-        // Incorrect temperature factors
-        {"Temperature", {{"Celsius", 1.0}, {"Fahrenheit", 5.0 / 9.0}, {"Kelvin", 1.0}}},
+        {"Temperature", {{"Celsius", 0.0}, {"Fahrenheit", 0.0}, {"Kelvin", 0.0}}},
 
         {"Time", {{"Microsecond", 1e-6}, {"Nanosecond", 1e-9}, {"Millisecond", 1e-3}, {"Second", 1.0}, {"Minute", 60.0}, {"Hour", 3600.0}, {"Day", 86400.0}, {"Week", 604800.0}, {"Month", 2629746.0}, {"Year", 31556952.0}, {"Decade", 315569520.0}, {"Century", 3155695200.0}}},
 
         {"Volume", {{"US liquid gallon", 0.0037854}, {"US liquid quart", 9.46353e-4}, {"US liquid pint", 4.73176e-4}, {"US legal cup", 2.36588e-4}, {"US fluid ounce", 2.95735e-5}, {"US tablespoon", 1.47868e-5}, {"US teaspoon", 4.92892e-6},{"Cubic meter", 1.0}, {"Liter", 1e-3}, {"Milliliter", 1e-6}, {"Imperial gallon", 0.00454609}, {"Imperial quart", 0.00113652}, {"Imperial pint", 5.68261e-4}, {"Imperial cup", 2.84131e-4}, {"Imperial fluid ounce", 2.84131e-5}, {"Imperial tablespoon", 1.78354e-5}, {"Imperial teaspoon", 5.94512e-6}, {"Cubic foot", 0.0283168}, {"Cubic inch", 1.63871e-5}}}
+    };
+
+    struct TemperatureConversion {
+        double factor;
+        double offset;
+    };
+
+    std::map<std::string, std::map<std::string, TemperatureConversion>> temperatureConversions = {
+        {"Celsius", {
+            {"Fahrenheit", {1.8, 32.0}},
+            {"Kelvin", {1.0, 273.15}}
+        }},
+        {"Fahrenheit", {
+            {"Celsius", {0.55555555556, -17.7777777778}},
+            {"Kelvin", {0.55555555556, 255.372222222}}
+        }},
+        {"Kelvin", {
+            {"Celsius", {1.0, -273.15}},
+            {"Fahrenheit", {1.8, -459.67}}
+        }}
     };
 
     bool converting;
