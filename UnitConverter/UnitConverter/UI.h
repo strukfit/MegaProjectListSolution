@@ -25,8 +25,6 @@ private:
 	QVBoxLayout* vLayout;
 	QGridLayout* gLayout;
 	QLabel* equalText;
-
-	QMainWindow* UnitConverterClass;
 };
 
 namespace Ui {

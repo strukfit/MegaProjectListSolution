@@ -2,8 +2,6 @@
 
 void UI::setupUi(QMainWindow* UnitConverterClass)
 {
-    this->UnitConverterClass = UnitConverterClass;
-
     UnitConverterClass->setWindowTitle("Unit Converter");
 
     centralWidget = new QWidget(UnitConverterClass);

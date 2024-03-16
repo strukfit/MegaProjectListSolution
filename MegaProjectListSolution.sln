@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FindCostOfTileToCoverWxHFlo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitConverter", "UnitConverter\UnitConverter\UnitConverter.vcxproj", "{852AE6AB-D917-442C-AE00-91849193C822}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlarmClock", "AlarmClock\AlarmClock\AlarmClock.vcxproj", "{07272202-FEDC-490C-8966-D737ECBB233F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -83,6 +85,14 @@ Global
 		{852AE6AB-D917-442C-AE00-91849193C822}.Release|x64.Build.0 = Release|x64
 		{852AE6AB-D917-442C-AE00-91849193C822}.Release|x86.ActiveCfg = Release|x64
 		{852AE6AB-D917-442C-AE00-91849193C822}.Release|x86.Build.0 = Release|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Debug|x64.ActiveCfg = Debug|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Debug|x64.Build.0 = Debug|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Debug|x86.ActiveCfg = Debug|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Debug|x86.Build.0 = Debug|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Release|x64.ActiveCfg = Release|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Release|x64.Build.0 = Release|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Release|x86.ActiveCfg = Release|x64
+		{07272202-FEDC-490C-8966-D737ECBB233F}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +105,7 @@ Global
 		{FF5FD556-8D90-4D0F-8CC0-5C6BCA7145BB} = {AB62C443-9150-47E7-84A2-7EFE4E0AB91F}
 		{A506CB00-C0C1-4C79-96C0-DC30C83B0229} = {AB62C443-9150-47E7-84A2-7EFE4E0AB91F}
 		{852AE6AB-D917-442C-AE00-91849193C822} = {AB62C443-9150-47E7-84A2-7EFE4E0AB91F}
+		{07272202-FEDC-490C-8966-D737ECBB233F} = {AB62C443-9150-47E7-84A2-7EFE4E0AB91F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5B341B2-E763-4F9C-837F-E0B998EE17DF}
