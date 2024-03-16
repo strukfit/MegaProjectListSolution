@@ -24,8 +24,8 @@ target_include_directories(UnitConverter PRIVATE "include")
 
 target_link_libraries(UnitConverter PRIVATE PkgConfig::GTKMM)
 
-set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/UnitConverter/css)
-set(DESTINATION_DIR ${CMAKE_BINARY_DIR}/UnitConverter)
+set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/UnitConverter(gtkmm)/css")
+set(DESTINATION_DIR "${CMAKE_BINARY_DIR}/UnitConverter(gtkmm)")
 file(COPY ${SOURCE_DIR} DESTINATION ${DESTINATION_DIR})
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

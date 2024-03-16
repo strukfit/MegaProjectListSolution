@@ -12,4 +12,4 @@ endif()
 project ("MegaProjectListSolution")
 
 # Include sub-projects.
-add_subdirectory ("UnitConverter")
+add_subdirectory ("UnitConverter(gtkmm)")
