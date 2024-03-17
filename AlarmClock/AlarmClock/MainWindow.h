@@ -3,7 +3,9 @@
 #include "UI.h"
 #include <QTime>
 #include <QTimer>
-#include <qmessagebox.h>
+#include <QtWidgets/QMessageBox>
+#include "SetAlarmWindow.h"
+#include "AlarmClockWidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -16,9 +18,10 @@ public:
 public slots:
     void setAlarm(const QTime& time);
     void checkAlarm();
+    void openSetAlarmWindow();
 
 private:
     Ui::MainWindowClass* ui;
 
-    QTime alarmTime;
+    //bool alarmTriggered;
 };
