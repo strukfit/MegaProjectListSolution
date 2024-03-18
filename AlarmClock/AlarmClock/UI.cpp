@@ -8,6 +8,10 @@ void UI::setupMainWindowUI(QMainWindow* MainWindowClass)
 	
 	alarmsListWidget = new QListWidget(mainWindowCentralWidget);
 
+	alarmsListWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+	alarmsListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	alarmsListWidget->setStyleSheet("QListWidget::item { background-color: #323232; border-radius: 5px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; margin-top: 5px; }");
+
 	mainWindowSetAlarmButton = new QPushButton("openSetAlarmWindowButton", mainWindowCentralWidget);
 	mainWindowSetAlarmButton->setObjectName("mainWindowSetAlarmButton");
 
@@ -44,17 +48,13 @@ void UI::setupSetAlarmWindowUI(QDialog* SetAlarmWindowClass)
 
 void UI::setupAlarmClockWidgetUI(QWidget* AlarmClockWidgetClass)
 {
-	//AlarmClockWidgetClass->resize(100, 100);
-
-	//AlarmClockWidgetClass->setStyleSheet("background-color: black;");
-
-	//alarmClockWidgetCentralWidget = new QWidget(AlarmClockWidgetClass);
-	
 	gBoxLayout = new QGridLayout(AlarmClockWidgetClass);
 
 	time = new QLabel(AlarmClockWidgetClass);
+	time->setStyleSheet("color: white; font-size: 50px; font-weight: bold;");
 
 	name = new QLabel(AlarmClockWidgetClass);
+	name->setStyleSheet("color: white; font-size: 20px ");
 
 	testButton = new QPushButton("test", AlarmClockWidgetClass);
 

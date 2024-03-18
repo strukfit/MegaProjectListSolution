@@ -55,4 +55,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="C:\Users\struk\Downloads\static\RobotoSlab-Regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="C:\Users\struk\Downloads\static\RobotoSlab-Medium.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
 </Project>

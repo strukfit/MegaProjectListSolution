@@ -8,7 +8,7 @@ AlarmClockWidget::AlarmClockWidget(QWidget* parent, int id, QTime time, QString 
 	id(id), 
 	alarmTime(time), 
 	name(name), 
-	alarmTriggered(false)
+	active(true)
 {
 	ui->setupAlarmClockWidgetUI(this);
 
@@ -18,9 +18,9 @@ AlarmClockWidget::AlarmClockWidget(QWidget* parent, int id, QTime time, QString 
 	count++;
 }
 
-void AlarmClockWidget::setAlarmTriggered(bool flag)
+void AlarmClockWidget::setActive(bool flag)
 {
-	this->alarmTriggered = flag;
+	this->active = flag;
 }
 
 int AlarmClockWidget::getId()
@@ -38,9 +38,9 @@ QString AlarmClockWidget::getName()
 	return this->name;
 }
 
-bool AlarmClockWidget::isAlarmTriggered()
+bool AlarmClockWidget::isActive()
 {
-	return this->alarmTriggered;
+	return this->active;
 }
 
 void AlarmClockWidget::addAlarm(const QTime& time)

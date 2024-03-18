@@ -10,12 +10,12 @@ class AlarmClockWidget : public QWidget
 public:
 	AlarmClockWidget(QWidget* parent = nullptr, int id = NULL, QTime time = QTime(0, 0), QString name = NULL);
 
-	void setAlarmTriggered(bool flag);
+	void setActive(bool flag);
 
 	int getId();
 	QTime getAlarmTime();
 	QString getName();
-	bool isAlarmTriggered();
+	bool isActive();
 
 	static int count;
 
@@ -29,5 +29,5 @@ private:
 	QTime alarmTime;
 	QString name;
 
-	bool alarmTriggered;
+	bool active;
 };

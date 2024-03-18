@@ -22,6 +22,4 @@ public slots:
 
 private:
     Ui::MainWindowClass* ui;
-
-    //bool alarmTriggered;
 };
